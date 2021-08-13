@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flt_mem_v1/models/clasa.dart';
-import 'package:flt_mem_v1/screens/screenMeniuMaterii.dart';
 
 class ClaseMenu extends StatelessWidget {
   const ClaseMenu({Key? key}) : super(key: key);
@@ -22,13 +21,7 @@ class ClaseMenu extends StatelessWidget {
                       padding: MaterialStateProperty.all<EdgeInsets>(
                           EdgeInsets.all(10)),
                     ),
-                    onPressed: () => {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => ScreenMeniuMaterii()),
-                      )
-                    },
+                    onPressed: () => {print(index)},
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [

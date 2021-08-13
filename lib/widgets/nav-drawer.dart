@@ -25,7 +25,7 @@ class NavDrawer extends StatelessWidget {
             onTap: () => {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => Screen1()),
+                MaterialPageRoute(builder: (context) => ScreenMeniuClase()),
               )
             },
           ),
