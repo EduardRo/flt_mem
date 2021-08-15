@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flt_mem_v1/models/clasa.dart';
+import 'package:flt_mem_v1/models/materii.dart';
 
-class ClaseMenu extends StatelessWidget {
-  const ClaseMenu({Key? key}) : super(key: key);
+class ClaseMenuMaterii extends StatelessWidget {
+  const ClaseMenuMaterii({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -10,7 +10,7 @@ class ClaseMenu extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(20.0),
         child: ListView.builder(
-            itemCount: clase.length,
+            itemCount: clasa09.length,
             itemBuilder: (BuildContext context, int index) {
               return Column(
                 children: [
@@ -28,7 +28,7 @@ class ClaseMenu extends StatelessWidget {
                         Padding(
                           padding: const EdgeInsets.all(20.0),
                           child: Text(
-                            clase[index].denumireClasa.toString(),
+                            clasa09[index].denumireserie.toString(),
                             style: TextStyle(color: Colors.white),
                           ),
                         ),
