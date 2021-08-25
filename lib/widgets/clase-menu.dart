@@ -39,30 +39,6 @@ class ClaseMenu extends StatelessWidget {
                             style: TextStyle(color: Colors.white),
                           ),
                         ),
-                        Row(
-                          children: [
-                            Icon(
-                              Icons.star,
-                              size: 16,
-                              color: Colors.yellowAccent,
-                            ),
-                            Icon(
-                              Icons.star,
-                              size: 16,
-                              color: Colors.yellowAccent,
-                            ),
-                            Icon(
-                              Icons.star,
-                              size: 16,
-                              color: Colors.red[800],
-                            ),
-                            Icon(
-                              Icons.star,
-                              size: 16,
-                              color: Colors.yellowAccent[700],
-                            )
-                          ],
-                        ),
                       ],
                     ),
                   ),

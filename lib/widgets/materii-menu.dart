@@ -13,6 +13,8 @@ class ClaseMenuMaterii extends StatelessWidget {
             itemCount: clasa09.length,
             itemBuilder: (BuildContext context, int index) {
               return Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   ElevatedButton(
                     style: ButtonStyle(
@@ -25,11 +27,26 @@ class ClaseMenuMaterii extends StatelessWidget {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Padding(
-                          padding: const EdgeInsets.all(20.0),
-                          child: Text(
-                            clasa09[index].denumireserie.toString(),
-                            style: TextStyle(color: Colors.white),
+                        Flexible(
+                          child: Padding(
+                            padding: const EdgeInsets.all(20.0),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  calculation(
+                                      clasa09[index].codmaterie.toString()),
+                                  style: TextStyle(color: Colors.white),
+                                ),
+                                SizedBox(height: 2),
+                                Text(
+                                  clasa09[index].denumireserie.toString(),
+                                  style: TextStyle(color: Colors.greenAccent),
+                                  maxLines: 5,
+                                  softWrap: true,
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                         Row(
@@ -66,4 +83,18 @@ class ClaseMenuMaterii extends StatelessWidget {
       ),
     );
   }
+}
+
+String calculation(String codmaterie) {
+  String value = "";
+  switch (codmaterie) {
+    case "AL":
+      value = "Algebra";
+      break;
+    case "TR":
+      value = "Trigonometrie";
+      break;
+  }
+
+  return value;
 }
