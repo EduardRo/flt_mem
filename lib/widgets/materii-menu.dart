@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flt_mem_v1/models/materii.dart';
+import 'package:flt_mem_v1/screens/screenTest.dart';
 
 class ClaseMenuMaterii extends StatelessWidget {
   const ClaseMenuMaterii({Key? key}) : super(key: key);
@@ -23,7 +24,16 @@ class ClaseMenuMaterii extends StatelessWidget {
                       padding: MaterialStateProperty.all<EdgeInsets>(
                           EdgeInsets.all(10)),
                     ),
-                    onPressed: () => {print(index)},
+                    onPressed: () => {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => Test(
+                                  index: index,
+                                ),
+                            settings: RouteSettings(arguments: index)),
+                      )
+                    },
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
