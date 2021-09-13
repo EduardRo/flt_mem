@@ -1,3 +1,5 @@
+import 'dart:collection';
+
 import 'package:flutter/material.dart';
 
 // this is a test --- must be deleted at the end
@@ -13,6 +15,31 @@ class ItemCounter extends StatefulWidget {
 
 class _ItemCounterState extends State<ItemCounter> {
   int count = 0;
+  var questions = [
+    'what\'s your favorite color?',
+    'What\'s your favorite animal?',
+  ];
+//matricea enunturi si variante de raspuns
+
+//matricea de raspunsuri
+  HashMap raspuns = HashMap<int, int>();
+  var index = 0;
+  var questionIndex = 0;
+  void answerQuestion() {
+    setState(() {
+      if (questionIndex == 0) {
+        questionIndex = 1;
+      } else {
+        questionIndex = 0;
+      }
+      index = index + 2;
+    });
+    setState(() {
+      //newMap.update(2,(e)=>index);
+      raspuns[index] = index;
+    });
+    print(raspuns);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -28,8 +55,18 @@ class _ItemCounterState extends State<ItemCounter> {
               },
               child: Text(
                 '${widget.name}:$count',
-                textDirection: TextDirection.ltr,
+                textDirection: TextDirection.rtl,
                 style: TextStyle(color: getMyColor(count)),
+              ),
+            ),
+          ),
+          Directionality(
+            textDirection: TextDirection.rtl,
+            child: ElevatedButton(
+              onPressed: answerQuestion,
+              child: Text(
+                questions[questionIndex],
+                textDirection: TextDirection.rtl,
               ),
             ),
           ),
@@ -51,11 +88,14 @@ Color getMyColor(int moneyCounter) {
 Widget theWidget(int counter) {
   int cont = counter;
   print(cont);
-  return Container(
-    child: Text(
-      'myWidget is show!',
-      style: TextStyle(color: cont > 2 ? Colors.green : Colors.yellow),
-      textDirection: TextDirection.ltr,
+  return Padding(
+    padding: const EdgeInsets.all(38.0),
+    child: Container(
+      child: Text(
+        'Count',
+        style: TextStyle(color: cont > 2 ? Colors.green : Colors.yellow),
+        textDirection: TextDirection.ltr,
+      ),
     ),
   );
 }

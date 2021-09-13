@@ -108,6 +108,8 @@ class Test extends StatelessWidget {
         "path": "09\/AL\/M09AL04\/"
       }
     ];
-    return Container(child: TestWidget(idx: index, var1: data[2][7]));
+    return Container(
+        child: TestWidget(
+            idx: index, path: data[2]["path"], var1: data[2]["var1"]));
   }
 }
