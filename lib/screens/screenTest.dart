@@ -110,6 +110,9 @@ class Test extends StatelessWidget {
     ];
     return Container(
         child: TestWidget(
-            idx: index, path: data[2]["path"], var1: data[2]["var1"]));
+            idx: index,
+            path: data[2]["path"],
+            enunt: data[2]["enunt"],
+            var1: data[2]["var1"]));
   }
 }
