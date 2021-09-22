@@ -11,27 +11,40 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  void _answerQuestion() {
-    print('am apasat butonul');
+  var questions = [
+    {
+      'questionText': 'What\'s your favorite color?',
+      'answers': ['Black', 'Red', 'Green', 'White'],
+    },
+    {
+      'questionText': 'What\'s your favorite animal?',
+      'answers': ['Rabbit', 'Snake', 'Elephant', 'Lion'],
+    },
+    {
+      'questionText': 'What\'s your favorite country?',
+      'answers': ['US', 'UK', 'Itally', 'France'],
+    },
+  ];
+  var _questionIndex = 0;
+  // functia chemata
+  void _answerQuestion(String score) {
+    if (_questionIndex < questions.length - 1) {
+      setState(() {
+        _questionIndex = _questionIndex + 1;
+      });
+      print('am apasat butonul $_questionIndex');
+      print(score);
+    } else {
+      setState(() {
+        _questionIndex = 0;
+      });
+      print('am apasat butonul $_questionIndex');
+      print(score);
+    }
   }
 
   @override
   Widget build(BuildContext context) {
-    var questions = [
-      {
-        'questionText': 'What\'s your favorite color?',
-        'answer': ['Black', 'Red', 'Green', 'White'],
-      },
-      {
-        'questionText': 'What\'s your favorite animal?',
-        'answer': ['Rabbit', 'Snake', 'Elephant', 'Lion'],
-      },
-      {
-        'questionText': 'What\'s your favorite country?',
-        'answer': ['US', 'UK', 'Itally', 'France'],
-      },
-    ];
-
     return MaterialApp(
       home: Scaffold(
           appBar: AppBar(
@@ -39,13 +52,20 @@ class _MyAppState extends State<MyApp> {
           ),
           body: Column(
             children: [
-              Answer(
-                  selectHandler: _answerQuestion,
-                  nrButton: questions[1]['questionText'].toString()),
-              Answer(selectHandler: _answerQuestion, nrButton: '1'),
-              Answer(selectHandler: _answerQuestion, nrButton: '1'),
+              ...(questions[_questionIndex]['answers'] as List<String>)
+                  .map((answer) {
+                return Answer(
+                    selectHandler: () => _answerQuestion(answer),
+                    answerText: answer);
+              }).toList(),
             ],
           )),
     );
   }
 }
+
+/* Answer(
+                  selectHandler: _answerQuestion,
+                  nrButton: questions[1]['questionText'].toString()),
+              Answer(selectHandler: _answerQuestion, nrButton: '1'),
+              Answer(selectHandler: _answerQuestion, nrButton: '2'),*/
