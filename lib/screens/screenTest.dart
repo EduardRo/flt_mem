@@ -1,10 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:flt_mem_v1/widgets/test-widget.dart';
+import 'package:flt_mem_v1/widgets/answer-widget.dart';
+import 'package:flt_mem_v1/widgets/question-widget.dart';
 
 // ignore: must_be_immutable
-class Test extends StatelessWidget {
+class Test extends StatefulWidget {
   const Test({Key? key, required this.index}) : super(key: key);
   final int index;
+
+  @override
+  _TestState createState() => _TestState();
+}
+
+class _TestState extends State<Test> {
+  var _questionIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -108,11 +116,48 @@ class Test extends StatelessWidget {
         "path": "09\/AL\/M09AL04\/"
       }
     ];
+    void answerQuestion(String answer) {
+      setState(() {
+        if (data.length > _questionIndex) {
+          _questionIndex = _questionIndex + 1;
+        }
+      });
+
+      print(answer);
+    }
+
     return Container(
-        child: TestWidget(
-            idx: index,
-            path: data[2]["path"],
-            enunt: data[2]["enunt"],
-            var1: data[2]["var1"]));
+        child: Column(
+      children: [
+        QuestionWidget(
+            selectHandler: () =>
+                answerQuestion(data[_questionIndex]["var1"].toString()),
+            idx: _questionIndex + 1,
+            path: data[_questionIndex]["path"],
+            enunt: data[_questionIndex]["enunt"],
+            var1: data[_questionIndex]["var1"]),
+        AnswerWidget(
+            selectHandler: () =>
+                answerQuestion(data[_questionIndex]["var1"].toString()),
+            idx: _questionIndex + 1,
+            path: data[_questionIndex]["path"],
+            enunt: data[_questionIndex]["enunt"],
+            var1: data[_questionIndex]["var1"]),
+        AnswerWidget(
+            selectHandler: () =>
+                answerQuestion(data[_questionIndex]["var2"].toString()),
+            idx: _questionIndex + 1,
+            path: data[_questionIndex]["path"],
+            enunt: data[_questionIndex]["enunt"],
+            var1: data[_questionIndex]["var2"]),
+        AnswerWidget(
+            selectHandler: () =>
+                answerQuestion(data[_questionIndex]["raspuns"].toString()),
+            idx: _questionIndex + 1,
+            path: data[_questionIndex]["path"],
+            enunt: data[_questionIndex]["enunt"],
+            var1: data[_questionIndex]["raspuns"]),
+      ],
+    ));
   }
 }
