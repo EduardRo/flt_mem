@@ -11,7 +11,7 @@ class ClaseMenuMaterii extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(20.0),
         child: ListView.builder(
-            itemCount: clasa09.length,
+            itemCount: 7,
             itemBuilder: (BuildContext context, int index) {
               return Column(
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -45,7 +45,7 @@ class ClaseMenuMaterii extends StatelessWidget {
                               children: [
                                 Text(
                                   calculation(
-                                      clasa09[index].codmaterie.toString()),
+                                      clasa10[index].codmaterie.toString()),
                                   style: TextStyle(color: Colors.white),
                                 ),
                                 SizedBox(height: 2),
@@ -75,6 +75,11 @@ class ClaseMenuMaterii extends StatelessWidget {
                               Icons.star,
                               size: 16,
                               color: Colors.red[800],
+                            ),
+                            Icon(
+                              Icons.star,
+                              size: 16,
+                              color: Colors.yellowAccent[700],
                             ),
                             Icon(
                               Icons.star,
