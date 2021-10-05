@@ -5,6 +5,8 @@ import 'package:flt_mem_v1/widgets/materii-menu.dart';
 
 class ScreenMeniuMaterii extends StatelessWidget {
   //const Screen1({Key? key}) : super(key: key);
+  final Data data;
+  ScreenMeniuMaterii({this.data});
 
   @override
   Widget build(BuildContext context) {
